@@ -1,0 +1,38 @@
+<div class="homeSearch" id="homeSearch">
+  <div class="container">
+    <div class="row" class="search">
+      <div class="col-md-8 offset-md-2 text-center">
+        <h1>Book your appointment</h1>
+        <form id="searchForm" [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm)" autocomplete="off" novalidate>
+          <div class="form-group">
+            <input type="text" class="form-control searchField" formControlName="search" (focus)="inputFocus();" placeholder="Search doctor by name/keyword">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control dateField" formControlName="date" (focus)="inputFocus();" placeholder="Schedule date and time">
+          </div>
+          <button type="submit" id="submitBtn" class="btn btn-success" [disabled]="!searchForm.valid">Find your doctors</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="searchResults" id="searchResults" *ngIf="displayList">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 text-left">
+      <h4>Search results for available appointments</h4>
+      <ul [@enterAnimation] class="searchList">
+        <li *ngFor="let item of searchResult;let idx=index;">
+          <div class="row">
+            <div class="col-md-1 index listItem">{{idx+1}}</div>
+            <div class="col-md-3 name listItem">Dr. {{item.name}}</div>
+            <div class="col-md-4 specialized listItem">{{item.specialized}}</div>
+            <div class="col-md-2 time listItem">time: {{item.time}}</div>
+            <div class="col-md-2 book listItem">
+              <button type="button" class="book_appointment" class="btn btn-success">Book appointment</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
