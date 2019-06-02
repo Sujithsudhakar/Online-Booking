@@ -14,6 +14,8 @@ import { FooterComponent } from './footer/footer.component';
 import { TermsComponent } from './terms/terms.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { requestService } from './services/request.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,12 +32,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule, 
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot()
   ],
   exports: [BsDropdownModule, TooltipModule, ModalModule],
-  providers: [],
+  providers: [requestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

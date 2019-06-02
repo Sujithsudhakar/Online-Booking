@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~font-awesome/css/font-awesome.css";
 
 html{
     position:relative;
@@ -67,7 +68,26 @@ html{
                     }
                 }
             }
-            
+            .requestLoader{
+                display:block;
+                width:40px;
+                height:40px;
+                margin:0 auto;
+                background:url("assets/images/spinner.svg") no-repeat center; 
+                background-size:40px;
+                opacity:0.6;
+            }   
+            .statusText{
+                font-size:20px;
+                color:#59BA62;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin:1.5rem 0 0;
+                i{
+                    margin-right:1.2rem;
+                }
+            }      
         }
     }
 }
